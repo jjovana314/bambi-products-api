@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+    mongo:
+        image: mongo:latest
+        volumes:
+            - mongo-data:/data/db
+        restart: always
+        expose:
+            - "27017"
+        ports:
+            - 27017:27017
+    server:
+        image: bambi-server-api:1.0.0
+        container_name: bambi_server
+        build: ./backend
+        command: npm run start:dev
+        ports:
+            - 3000:3000
+        networks:
+            - nestjs_network
+        depends_on:
+            - mongo
+        links: 
+            - mongo
+        restart: always
+volumes:
+    mongo-data: {}
+networks:
+    nestjs_network:
+        driver: bridge
