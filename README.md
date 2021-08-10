@@ -4,7 +4,7 @@
 
 <p align="center">API for product catalog for Koncern Bambi a.d.</p>
 
-## Run application
+## Run API
 
 ```bash
 # build docker container
