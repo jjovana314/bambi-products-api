@@ -7,7 +7,7 @@ import { RegisterService } from 'src/register/register.service';
 @Controller('login')
 export class LoginController {
 	constructor(private readonly loginService: LoginService,
-			private readonly registerService: RegisterService) {}
+    private readonly registerService: RegisterService) {}
 
 	@Post()
 	async login(@Body() loginInfo: LoginDto): Promise<Login> {
@@ -24,17 +24,17 @@ export class LoginController {
 
 	@Get(':id')
 	findUser(@Param('id') id): Promise<Login> {
-			return this.loginService.findUser(id);
+    return this.loginService.findUser(id);
 	}
 
 	@Get('findByUsername/:username')
 	async findUserByUsername(@Param('username') username): Promise<Login> {
-			await this.loginService.userExist(username);
-			return await this.loginService.findByUsername(username);
+    await this.loginService.userExist(username);
+    return await this.loginService.findByUsername(username);
 	}
 
 	@Get()
 	async listAllUsers() {
-			return await this.loginService.listAllUsers();
+    return await this.loginService.listAllUsers();
 	}
 }
