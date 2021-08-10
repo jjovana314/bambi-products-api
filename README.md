@@ -18,6 +18,7 @@ $ sudo docker-compose up
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [NestJS](https://nestjs.com/)
+- [MongoDB](https://www.mongodb.com/)
 - [Git](https://git-scm.com/)
 - [GitHub](https://github.com/)
 - [Docker](https://www.docker.com/)
