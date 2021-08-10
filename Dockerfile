@@ -2,11 +2,11 @@ FROM node:latest
 
 RUN npm install nest -g --save
  
-WORKDIR /usr/src/backend
+WORKDIR /usr/src/api
 
-COPY . /usr/src/backend/
+COPY . /usr/src/api/
  
-COPY package*.json /usr/src/backend/
+COPY package*.json /usr/src/api/
 
 RUN npm install bcrypt --save
  
