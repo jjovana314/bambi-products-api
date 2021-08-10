@@ -395,7 +395,7 @@ import { RegisterService } from &#x27;src/register/register.service&#x27;;
 @Controller(&#x27;login&#x27;)
 export class LoginController {
 	constructor(private readonly loginService: LoginService,
-			private readonly registerService: RegisterService) {}
+    private readonly registerService: RegisterService) {}
 
 	@Post()
 	async login(@Body() loginInfo: LoginDto): Promise&lt;Login&gt; {
@@ -412,18 +412,18 @@ export class LoginController {
 
 	@Get(&#x27;:id&#x27;)
 	findUser(@Param(&#x27;id&#x27;) id): Promise&lt;Login&gt; {
-			return this.loginService.findUser(id);
+    return this.loginService.findUser(id);
 	}
 
 	@Get(&#x27;findByUsername/:username&#x27;)
 	async findUserByUsername(@Param(&#x27;username&#x27;) username): Promise&lt;Login&gt; {
-			await this.loginService.userExist(username);
-			return await this.loginService.findByUsername(username);
+    await this.loginService.userExist(username);
+    return await this.loginService.findByUsername(username);
 	}
 
 	@Get()
 	async listAllUsers() {
-			return await this.loginService.listAllUsers();
+    return await this.loginService.listAllUsers();
 	}
 }</code></pre>
     </div>
