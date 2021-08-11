@@ -34,12 +34,12 @@ $ npx @compodoc/compodoc -p tsconfig.json -s
 
 - Register structure
 
-firstName:   Optional string, represents users first name<br>
+<p>firstName:   Optional string, represents users first name<br>
 lastName:    Optional string, represents users last name<br>
 dateOfBirth: Optional string, represents users date of birth<br>
 username:    Optional string, represents username<br>
 password:    Optional string, represents users password<br>
-email:       Optional string, represents users email<br>
+email:       Optional string, represents users email</p>
 
 - Login structure
 
