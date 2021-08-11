@@ -59,7 +59,7 @@ $ npx @compodoc/compodoc -p tsconfig.json -s
 **id**:    String, represents product class id<br>
 **title**: String, represents product class title<br>
 
-### Products (product with all details)
+### Products (product with all details) structure
 
 **&#95;id**: Optional string, database primary key (if not given, generated automaticly)<br>
 **id**: Optional string, product id<br>
@@ -91,7 +91,7 @@ $ npx @compodoc/compodoc -p tsconfig.json -s
 &nbsp;&nbsp;&nbsp;&nbsp;- **value**: Optional number, represents logistics value<br>
 
 **tags**: Optional string array of tags<br>
-**CustomAttributest**: CustomAttributes array:<br>
+**CustomAttributes**: CustomAttributes array:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;- **key**: Optional string, custom attributes key<br>
 &nbsp;&nbsp;&nbsp;&nbsp;- **prompt**: Optional string, custom attributest prompt<br>
 &nbsp;&nbsp;&nbsp;&nbsp;- **value**: Optional boolean, custom attributes value<br>
