@@ -61,6 +61,11 @@ $ npx @compodoc/compodoc -p tsconfig.json -s
 
 ### Products (product with all details)
 
+**&#95;id**: Optional string, database primary key (if not given, generated automaticly)<br>
+**id**: Optional string, product id<br>
+**productCode**: Optional string, represents product code<br>
+
+
 ## Author
 
 - [Jovana Jovanović](https://github.com/jjovana314)
