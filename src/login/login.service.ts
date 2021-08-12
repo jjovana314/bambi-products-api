@@ -39,4 +39,8 @@ export class LoginService {
   async listAllUsers() {
     return await this.loginModel.find();
   }
+
+  async logout(id: string) {
+    await this.loginModel.findByIdAndRemove(id);
+  }
 }
