@@ -37,4 +37,13 @@ export class LoginController {
 	async listAllUsers() {
     return await this.loginService.listAllUsers();
 	}
+
+  @Get('logout/:_id')
+  async logout(@Param('_id') _id: string) {
+    await this.loginService.logout(_id);
+    var date = new Date().toLocaleString('hu-HU', {timeZone: 'CET'});
+    console.log(
+			`User with id: ${_id} logged out at: ${date}`
+		);
+  }
 }
