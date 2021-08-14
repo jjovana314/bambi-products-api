@@ -4,14 +4,12 @@ import { Model } from 'mongoose';
 import { ProductsDto } from './dto/products.interface.dto';
 import { Products } from './interfaces/products.interface';
 import { ProductsArrayDto } from './dto/products.array.interface.dto';
-import { ProductService } from 'src/product/product.service';
 
 
 @Injectable()
 export class ProductsService {
   constructor(
-    @InjectModel('Products') private readonly productsModel: Model<Products>,
-    private readonly productService: ProductService) {}
+    @InjectModel('Products') private readonly productsModel: Model<Products>,) {}
 
   async createProduct(inputData: ProductsDto): Promise<Products> {
     await this.productExist(inputData.id, true);    // check if product already exists
@@ -72,5 +70,13 @@ export class ProductsService {
   async deleteProduct(id: string) {
     await this.productExist(id, false, true);
     await this.productsModel.findOneAndRemove({id: id});
+  }
+
+  async deleteAllProducts() {
+    await this.productsModel.remove({});
+  }
+
+  async deleteProductWithPrimKey(_id: string) {
+    await this.productsModel.findByIdAndRemove(_id);
   }
 }
