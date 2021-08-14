@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose';
 
 
 // database schema
-export const ProductSchema = new mongoose.Schema({
+export const ProductClassSchema = new mongoose.Schema({
     id: String,
     title: String
 });
