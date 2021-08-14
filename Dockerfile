@@ -7,8 +7,6 @@ WORKDIR /usr/src/api
 COPY . /usr/src/api/
  
 COPY package*.json /usr/src/api/
-
-RUN npm install bcrypt --save
  
 RUN npm install
 
