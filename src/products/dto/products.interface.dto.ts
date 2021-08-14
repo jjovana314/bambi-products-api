@@ -1,7 +1,7 @@
 import { ValidateNested } from "class-validator";
 import { Type } from 'class-transformer';
 import { ForeignNamesDto } from "./foreignNames.interface.dto";
-import { ProductClassDto } from "src/product/dto/product.interface.dto";
+import { ProductClassDto } from "./productClass.interface.dto";
 import { ThumbnailDto } from "./thumbnail.interface.dto";
 import { ImagesDto } from "./images.interface.dto";
 import { LogisticsDataDto } from "./logisticsData.interface.dto";
