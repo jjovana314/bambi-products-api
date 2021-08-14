@@ -36,9 +36,19 @@ export class ProductsController {
     return result;
   }
 
+  @Delete('delete/deleteAllProducts')
+  async deleteProducts() {
+    await this.productsService.deleteAllProducts();
+  }
+
   @Delete(':id')
   async deleteProduct(@Param('id') id: string) {
     await this.productsService.deleteProduct(id);
     this.productsService.addLogs(id, 'deleted');
+  }
+
+  @Delete('deleteOldProduct/:_id')
+  async deleteProductWithPrimKey(@Param(':_id') _id: string) {
+    await this.productsService.deleteProductWithPrimKey(_id);
   }
 }
