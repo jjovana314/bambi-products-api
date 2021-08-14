@@ -30,6 +30,40 @@ $ sudo docker-compose up
 ```bash
 $ npx @compodoc/compodoc -p tsconfig.json -s
 ```
+
+## Docker:
+
+### Services:
+
+**mongo**:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Using _mongo_ image from [Docker Hub](https://hub.docker.com/) for database<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Volume for database: _/data/db_<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Always restarting database<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Listen on port **27017**
+
+**server**:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Using _bambi-server-api:1.0.0_ image<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Listen on port **3000**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Depends on _mongo_<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Restarting always
+
+**client**:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Using _bambi-client-api:1.0.0_ image<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Listen on port **4200**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Depends on _mongo_ and _server_
+
+
+### Dockerfile:
+
+- Using latest _node_ image
+- Installing _nest_
+- Creating work directory _/usr/src/api_
+- Copy everything in work directory
+- Installing packages using _npm_
+- Building packages inside container
+- Exposing api port (3000)
+- Running _npm start_
+
 ## Database:
 
 ### Register structure
