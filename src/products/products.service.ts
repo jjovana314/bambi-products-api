@@ -73,7 +73,7 @@ export class ProductsService {
   }
 
   async deleteAllProducts() {
-    await this.productsModel.remove({});
+    await this.productsModel.deleteMany({});
   }
 
   async deleteProductWithPrimKey(_id: string) {
