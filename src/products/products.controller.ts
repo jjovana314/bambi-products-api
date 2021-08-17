@@ -51,4 +51,9 @@ export class ProductsController {
   async deleteProductWithPrimKey(@Param(':_id') _id: string) {
     await this.productsService.deleteProductWithPrimKey(_id);
   }
+
+  @Get('incrementLikes/:id')
+  async incrementLikes(@Param('id') id: string) {
+    await this.productsService.incrementLikes(id);
+  }
 }

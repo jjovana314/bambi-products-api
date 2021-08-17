@@ -79,4 +79,9 @@ export class ProductsService {
   async deleteProductWithPrimKey(_id: string) {
     await this.productsModel.findByIdAndRemove(_id);
   }
+
+  async incrementLikes(id: string) {
+    var likesInremented = (await this.productsModel.findOne({id: id})).likes.valueOf() + 1;
+    await this.productsModel.findOneAndUpdate({id: id}, {$set: {likes: likesInremented}});
+  }
 }
