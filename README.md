@@ -4,7 +4,22 @@
 
 <p align="center">API for product catalog for Koncern Bambi a.d.</p>
 
-## Run API
+## Table of Contents
+- [Run API](#run)
+- [Tools used in development](#tools)
+- [Documentation](#documentation)
+- [Docker](#docker)
+  - [Services](#services)
+  - [Dockerfile](#dockerfile)
+- [Database](#database)
+  - [Register structure](#register-structure)
+  - [Login structure](#login-structure)
+  - [Admin structure](#admin-structure)
+  - [Product class structure](#productClass-structure)
+  - [Products (product with all details) structure](#products-structure)
+- [Author](#author)
+
+## Run API<a name="run"></a>
 
 ```bash
 # build docker container
@@ -14,7 +29,7 @@ $ sudo docker-compose build
 $ sudo docker-compose up
 ```
 
-## Tools used in development:
+## Tools used in development<a name="tools"></a>
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [NestJS](https://nestjs.com/)
@@ -25,15 +40,17 @@ $ sudo docker-compose up
 - [Postman](https://www.postman.com/)
 
 
-## Documentation:
+## Documentation<a name="documentation"></a>
 
+Run command:
 ```bash
 $ npx @compodoc/compodoc -p tsconfig.json -s
 ```
+in root folder and visit _localhost:8080_
 
-## Docker:
+## Docker<a name="docker"></a>
 
-### Services:
+### Services<a name="services"></a>
 
 **mongo**:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;- Using _mongo_ image from [Docker Hub](https://hub.docker.com/) for database<br>
@@ -53,7 +70,7 @@ $ npx @compodoc/compodoc -p tsconfig.json -s
 &nbsp;&nbsp;&nbsp;&nbsp;- Depends on _mongo_ and _server_
 
 
-### Dockerfile:
+### Dockerfile<a name="dockerfile"></a>
 
 - Using latest _node_ image
 - Installing _nest_
@@ -64,7 +81,7 @@ $ npx @compodoc/compodoc -p tsconfig.json -s
 - Exposing api port (3000)
 - Running _npm start_
 
-## Database:
+## Database<a name="database"></a>
 
 ### Register structure
 
@@ -75,12 +92,12 @@ $ npx @compodoc/compodoc -p tsconfig.json -s
 **password**: Optional string, represents users password<br>
 **email**: Optional string, represents users email<br>
 
-### Login structure
+### Login structure<a name="loigin-structure"></a>
 
 **username**: Optional string, represents username<br>
 **password**: Optional string, represents users password<br>
 
-### Admin structure
+### Admin structure<a name="admin-structure"></a>
 
 **id**:             Optional string, represents uniqe identificator<br>
 **productCode**:    Optional string, represents code of product that is commented<br>
@@ -88,12 +105,12 @@ $ npx @compodoc/compodoc -p tsconfig.json -s
 **anyContactData**: Optional string, represents any contact that visitor wants to give<br>
 **aproved**:        Optional boolean, true if comment is aproved, false otherwise<br>
 
-### Product structure (productClass)
+### Product class structure<a name="productClass-structure"></a>
 
 **id**:    String, represents product class id<br>
 **title**: String, represents product class title<br>
 
-### Products (product with all details) structure
+### Products (product with all details) structure<a name="products-structure"></a>
 
 **&#95;id**: Optional string, database primary key (if not given, generated automaticly)<br>
 **id**: Optional string, product id<br>
@@ -134,6 +151,6 @@ $ npx @compodoc/compodoc -p tsconfig.json -s
 **description**: Optional stgring, represents product descitption<br>
 
 
-## Author
+## Author<a name="author"></a>
 
-- [Jovana Jovanović](https://github.com/jjovana314)
+[Jovana Jovanović](https://github.com/jjovana314)
