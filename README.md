@@ -21,12 +21,14 @@
 
 ## Run API<a name="run"></a>
 
+Build docker container:
 ```bash
-# build docker container
-$ sudo docker-compose build
+sudo docker-compose build
+```
 
-# run container
-$ sudo docker-compose up
+Run docker container:
+```bash
+sudo docker-compose up
 ```
 
 ## Tools used in development<a name="tools"></a>
