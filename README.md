@@ -66,11 +66,6 @@ in root folder and visit _localhost:8080_
 &nbsp;&nbsp;&nbsp;&nbsp;- Depends on _mongo_<br>
 &nbsp;&nbsp;&nbsp;&nbsp;- Restarting always
 
-**client**:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;- Using _bambi-client-api:1.0.0_ image<br>
-&nbsp;&nbsp;&nbsp;&nbsp;- Listen on port **4200**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;- Depends on _mongo_ and _server_
-
 
 ### Dockerfile<a name="dockerfile"></a>
 
