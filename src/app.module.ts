@@ -11,6 +11,8 @@ import { AdminModule } from './admin/admin.module';
 import { ProductsModule } from './products/products.module';
 import { RegisterModule } from './register/register.module';
 import { ProductClassModule } from './productClass/productClass.module';
+import { AuthModule } from './auth/auth.module';
+
 
 @Module({
     imports: [
@@ -19,6 +21,7 @@ import { ProductClassModule } from './productClass/productClass.module';
       ProductsModule,
       ProductClassModule,
       RegisterModule,
+      AuthModule,
       MongooseModule.forRoot(config.mongodbURI,     // note: using docker ip address: 172.17.0.1
       { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }),
     ],
