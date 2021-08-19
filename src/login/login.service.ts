@@ -4,6 +4,9 @@ import { Model } from 'mongoose';
 import { Login } from './interfaces/login.interface';
 import { InjectModel } from '@nestjs/mongoose';
 
+const bcrypt = require('bcrypt');
+const salt = 12;
+
 @Injectable()
 export class LoginService {
   constructor(
@@ -11,6 +14,11 @@ export class LoginService {
   ) { }
 
   async login(loginInfo: LoginDto): Promise<Login> {
+    const passHashed = await bcrypt.hash(loginInfo.password, salt);
+    loginInfo = {
+      ...loginInfo,
+      password: passHashed
+    };
     const newLoginUser = new this.loginModel(loginInfo);
     return await newLoginUser.save();
   }
