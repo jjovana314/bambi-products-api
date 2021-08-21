@@ -8,9 +8,9 @@ import { RegisterSchema } from "src/register/schemas/register.schema";
 
 
 @Module({
-    imports: [RegisterModule],
-    controllers: [AuthController],
-    providers: [AuthService, LocalStrategy],
-    exports: [AuthService, LocalStrategy]
+  imports: [RegisterModule],
+  controllers: [AuthController],
+  providers: [AuthService, LocalStrategy],
+  exports: [AuthService, LocalStrategy]
 })
-export class AuthModule {}
+export class AuthModule { }

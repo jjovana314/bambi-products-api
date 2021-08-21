@@ -3,6 +3,7 @@ import { LoginDto } from './dto/login.interface.dto';
 import { Model } from 'mongoose';
 import { Login } from './interfaces/login.interface';
 import { InjectModel } from '@nestjs/mongoose';
+import { JwtService } from '@nestjs/jwt';
 
 const bcrypt = require('bcrypt');
 const salt = 12;
@@ -10,6 +11,7 @@ const salt = 12;
 @Injectable()
 export class LoginService {
   constructor(
+    private jwtService: JwtService,
     @InjectModel('Login') private readonly loginModel: Model<Login>
   ) { }
 
@@ -19,7 +21,11 @@ export class LoginService {
       ...loginInfo,
       password: passHashed
     };
-    const newLoginUser = new this.loginModel(loginInfo);
+    let userDataWithToken = {
+      ...loginInfo,
+      token: this.jwtService.sign(loginInfo)
+    };
+    const newLoginUser = new this.loginModel(userDataWithToken);
     return await newLoginUser.save();
   }
 
