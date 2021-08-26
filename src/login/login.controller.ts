@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { LoginDto } from './dto/login.interface.dto';
 import { LoginService } from './login.service';
 import { Login } from './interfaces/login.interface';
@@ -12,17 +12,28 @@ export class LoginController {
   ) { }
 
   @Post()
-  async login(@Body() loginInfo: LoginDto): Promise<Login> {
-    await this.localStrategy.validate(
-      loginInfo.username, loginInfo.password
-    )
-    const result = this.loginService.login(loginInfo);
-    var date = new Date().toLocaleString(
-      'hu-HU', { timeZone: 'CET' }
+  async login(@Body() loginInfo: LoginDto): Promise<any> {
+    let userLoggedIn = await this.loginService.findByUsername(
+      loginInfo.username
     );
-    console.log(
-      `User: ${loginInfo.username} logged in at: ${date}`
-    )
+    var result: any;
+    if (!userLoggedIn) {
+      await this.localStrategy.validate(
+        loginInfo.username, loginInfo.password
+      )
+      result = this.loginService.login(loginInfo);
+      var date = new Date().toLocaleString(
+        'hu-HU', { timeZone: 'CET' }
+      );
+      console.log(
+        `User: ${loginInfo.username} logged in at: ${date}`
+      );
+    }
+    else {
+      result = {
+        message: `User ${loginInfo.username} is logged in`,
+      }
+    }
     return await result;
   }
 
@@ -53,5 +64,10 @@ export class LoginController {
     console.log(
       `User with id: ${_id} logged out at: ${date}`
     );
+  }
+
+  @Delete()
+  async removeAllUsers() {
+    await this.loginService.removeAllUsers();
   }
 }
