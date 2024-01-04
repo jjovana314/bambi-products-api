@@ -2,7 +2,7 @@
   <a href="https://bambi.rs/" target="blank"><img src="bambi.jpg" alt="Bambi Logo" width="250"/></a>
 </p>
 
-<p align="center">API for product catalog for Koncern Bambi a.d.</p>
+<p align="center">API for product catalogue for Koncern Bambi a.d.</p>
 
 ## Table of Contents
 - [Run API](#run)
